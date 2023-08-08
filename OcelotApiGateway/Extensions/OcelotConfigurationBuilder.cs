@@ -3,16 +3,12 @@ using Ocelot.Configuration.File;
 
 namespace OcelotApiGateway.Extensions
 {
-    public static class ConfigurationBuilderExtensions
+    public static class OcelotConfigurationBuilder
     {
-        public static IConfigurationBuilder AddOcelotConfigs(this IConfigurationBuilder builder, IWebHostEnvironment env, string folder)
+        const string primaryConfigFile = "ocelot.json";
+        public static IConfigurationBuilder AddOcelotConfigs(this IConfigurationBuilder builder, string rootFolder)
         {
-            const string primaryConfigFile = "ocelot.json";
-
-            var configFiles = new DirectoryInfo(folder)
-                .GetFiles("*.json", SearchOption.AllDirectories)
-                .ToList();
-
+            var configFiles = new DirectoryInfo(rootFolder).GetFiles("*.json", SearchOption.AllDirectories).ToList();
             var fileConfiguration = new FileConfiguration();
 
             foreach (var configFile in configFiles)

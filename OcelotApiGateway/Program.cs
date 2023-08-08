@@ -28,17 +28,17 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.WebHost.ConfigureAppConfiguration((hostingContext, config) =>
 {
-    var env = hostingContext.HostingEnvironment;
-    config.SetBasePath(env.ContentRootPath);
-    config.AddOcelotConfigs(env, "OcelotConfigs");
+    config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+    config.AddOcelotConfigs("OcelotConfigs");
 });
 
-builder.Services.AddOcelot(builder.Configuration)
-                .AddSingletonDefinedAggregator<ArticlesWriterAggregator>()
-                .AddCacheManager(x =>
-                {
-                    x.WithDictionaryHandle();
-                });
+builder.Services
+    .AddOcelot(builder.Configuration)
+    .AddSingletonDefinedAggregator<ArticlesWriterAggregator>()
+    .AddCacheManager(x =>
+    {
+        x.WithDictionaryHandle();
+    });
 
 builder.Services.AddAuthentication(options =>
  {
