@@ -1,0 +1,12 @@
+{
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "articles",
+        "writers"
+      ],
+      "UpstreamPathTemplate": "/",
+      "Aggregator": "ArticlesWriterAggregator"
+    }
+  ]
+}
