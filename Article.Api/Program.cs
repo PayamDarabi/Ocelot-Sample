@@ -1,5 +1,7 @@
 using Article.Api.Repository.Interfaces;
 using Article.Api.Repository;
+using Redis.Cache.Cache.Interface;
+using Redis.Cache.Cache;
 
 namespace Article.Api
 {
@@ -14,6 +16,7 @@ namespace Article.Api
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<ICacheService, CacheService>();
 
             builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
             var app = builder.Build();

@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Values;
 using OcelotApiGateway.Aggregators;
 using OcelotApiGateway.Extensions;
 using System.Text;
@@ -14,32 +15,29 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-//builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-//builder.WebHost.ConfigureAppConfiguration((hostingContext, config) =>
-//{
-//    config
-//        .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-//        .AddJsonFile("appsettings.json", true, true)
-//        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-//        .AddOcelot("OcelotConfigs/v1/gl", hostingContext.HostingEnvironment)
-//        .AddOcelot("OcelotConfigs/v2", hostingContext.HostingEnvironment)
-//        .AddEnvironmentVariables();
-//});
-
 builder.WebHost.ConfigureAppConfiguration((hostingContext, config) =>
 {
     config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
     config.AddOcelotConfigs("OcelotConfigs");
 });
 
+
 builder.Services
     .AddOcelot(builder.Configuration)
     .AddSingletonDefinedAggregator<ArticlesWriterAggregator>()
-    .AddCacheManager(x =>
-    {
-        x.WithDictionaryHandle();
-    });
-
+    //.AddCacheManager(x =>
+    // {
+    //     x.WithRedisConfiguration("redis",
+    //             config =>
+    //             {
+    //                 config.WithAllowAdmin()
+    //                 .WithDatabase(0)
+    //                 .WithEndpoint("localhost", 6379);
+    //             })
+    //     .WithJsonSerializer()
+    //     .WithRedisCacheHandle("redis");
+    // });
+    ;
 builder.Services.AddAuthentication(options =>
  {
      options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

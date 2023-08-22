@@ -1,0 +1,12 @@
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\bin\Debug\net6.0\Redis.Cache.deps.json
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\bin\Debug\net6.0\Redis.Cache.dll
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\bin\Debug\net6.0\Redis.Cache.pdb
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\Redis.Cache.csproj.AssemblyReference.cache
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\Redis.Cache.GeneratedMSBuildEditorConfig.editorconfig
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\Redis.Cache.AssemblyInfoInputs.cache
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\Redis.Cache.AssemblyInfo.cs
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\Redis.Cache.csproj.CoreCompileInputs.cache
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\Redis.Cache.dll
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\refint\Redis.Cache.dll
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\Redis.Cache.pdb
+D:\PersonalFiles\Code\Ocelot\Redis.Cache\obj\Debug\net6.0\ref\Redis.Cache.dll

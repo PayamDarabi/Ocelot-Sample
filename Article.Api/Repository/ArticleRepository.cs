@@ -33,17 +33,17 @@ namespace Article.Api.Repository
         };
             return result;
         }
-        public List<Models.Article> GetAll()
+        public async Task<List<Models.Article>> GetAllAsync()
         {
-            return _articles;
+            return await Task.FromResult(_articles);
         }
-        public Models.Article? Get(int id)
+        public async Task<Models.Article?> GetAsync(int id)
         {
-            return _articles.FirstOrDefault(x => x.Id == id);
+            return await Task.FromResult(_articles.FirstOrDefault(x => x.Id == id));
         }
-        public int Delete(int id)
+        public async Task<int> DeleteAsync(int id)
         {
-            var removed = _articles.SingleOrDefault(x => x.Id == id);
+            var removed = await Task.FromResult(_articles.SingleOrDefault(x => x.Id == id));
             if (removed != null)
             {
                 _articles.Remove(removed);

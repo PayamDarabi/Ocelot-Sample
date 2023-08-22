@@ -2,8 +2,8 @@
 {
     public interface IArticleRepository
     {
-        int Delete(int id);
-        Models.Article? Get(int id);
-        List<Models.Article> GetAll();
+        Task<int> DeleteAsync(int id);
+        Task<Models.Article?> GetAsync(int id);
+        Task<List<Models.Article>> GetAllAsync();
     }
 }

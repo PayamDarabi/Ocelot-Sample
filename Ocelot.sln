@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{0142034C-0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentitySample", "..\Identity\Identity\Identity\IdentitySample.csproj", "{5B5C1D72-7F76-422E-8A59-747E2DD75A6E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cache", "Cache", "{6F4F05FD-4DC2-4970-803C-F556A11031AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.Cache", "Redis.Cache\Redis.Cache.csproj", "{05645609-0B33-49B5-BCF1-721E306356E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{5B5C1D72-7F76-422E-8A59-747E2DD75A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B5C1D72-7F76-422E-8A59-747E2DD75A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B5C1D72-7F76-422E-8A59-747E2DD75A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05645609-0B33-49B5-BCF1-721E306356E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05645609-0B33-49B5-BCF1-721E306356E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05645609-0B33-49B5-BCF1-721E306356E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05645609-0B33-49B5-BCF1-721E306356E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{6A151FF6-3D37-4AD2-8709-77DFEBE95484} = {0BC49193-7A1E-448A-902B-1E50237C9CCE}
 		{43EA28D9-0E9B-454C-9399-6B13B524BF74} = {F991CDD3-296C-4AA3-B929-7C3AF4D3A714}
 		{5B5C1D72-7F76-422E-8A59-747E2DD75A6E} = {0142034C-08F8-4DA7-BB59-4E7BB1C7BBB4}
+		{05645609-0B33-49B5-BCF1-721E306356E2} = {6F4F05FD-4DC2-4970-803C-F556A11031AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF9D26DC-F4D8-4F6D-B976-1D921BC3B69B}

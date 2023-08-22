@@ -1,5 +1,7 @@
-﻿using Article.Api.Repository.Interfaces;
+﻿using Article.Api.Models;
+using Article.Api.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Redis.Cache.Cache.Interface;
 
 namespace Article.Api.Controllers
 {
@@ -8,34 +10,59 @@ namespace Article.Api.Controllers
     public class ArticlesController : ControllerBase
     {
         private readonly IArticleRepository _articleRepository;
-        public ArticlesController(IArticleRepository articleRepository)
+        private readonly ICacheService _cacheService;
+
+        public ArticlesController(IArticleRepository articleRepository, ICacheService cacheService)
         {
             _articleRepository = articleRepository;
+            _cacheService = cacheService;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(_articleRepository.GetAll());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var article = _articleRepository.Get(id);
-
-            if (article is null)
+            var cacheData = await _cacheService.GetData<List<Models.Article>>("Articles");
+            if (cacheData is not null)
+            {
+                return Ok(cacheData);
+            }
+            cacheData = await _articleRepository.GetAllAsync();
+            if (cacheData is not null)
+            {
+                _cacheService.SetData<IEnumerable<Models.Article>>("Articles", cacheData, DateTimeOffset.Now.AddSeconds(30));
+                return Ok(cacheData);
+            }
+            else
             {
                 return NotFound();
             }
+        }
 
-            return Ok(article);
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var cachedArticle = await _cacheService.GetData<Models.Article>("Article-" + id);
+            if (cachedArticle is not null)
+            {
+                return Ok(cachedArticle);
+            }
+            cachedArticle = await _articleRepository.GetAsync(id);
+            if (cachedArticle is not null)
+            {
+                _cacheService.SetData("Article-" + id, cachedArticle, DateTimeOffset.Now.AddSeconds(30));
+                return Ok(cachedArticle);
+            }
+
+            else
+            {
+                return NotFound();
+            }
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var deletedId = _articleRepository.Delete(id);
+            var deletedId = await _articleRepository.DeleteAsync(id);
 
             if (deletedId == 0)
             {

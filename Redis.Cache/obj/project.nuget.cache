@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "9YLJMWIYQcbdTtQlA5gVyvwRgdVYiwUZNELrdqO6COE8aryFoIQsgKTEmX41aoVDBsydS4JWzTrfrsrW9Tzzhw==",
+  "success": true,
+  "projectFilePath": "D:\\PersonalFiles\\Code\\Ocelot\\Redis.Cache\\Redis.Cache.csproj",
+  "expectedPackageFiles": [
+    "D:\\Users\\p.darabi\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "D:\\Users\\p.darabi\\.nuget\\packages\\stackexchange.redis\\2.6.122\\stackexchange.redis.2.6.122.nupkg.sha512",
+    "D:\\Users\\p.darabi\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
